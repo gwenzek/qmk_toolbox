@@ -34,21 +34,24 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #define TAPPING_FORCE_HOLD
 
-// Synchronize RGB lights
-#define RGBLIGHT_SPLIT
 // Make Layer Toggler easier to use
 #define RETRO_TAPPING
 
 // consider using TAPPING_TERM_PER_KEY if needed
-#define IGNORE_MOD_TAP_INTERRUPT
+// decrease number of ["space", "s"] instead of ["cmd+s"]
+#define PERMISSIVE_HOLD
+// #define IGNORE_MOD_TAP_INTERRUPT
 #define TAPPING_TERM 150
 
 #ifdef RGBLIGHT_ENABLE
+    #undef RGBLED_NUM
     #define RGBLIGHT_ANIMATIONS
+    // Synchronize RGB lights
+    #define RGBLIGHT_SPLIT
     #define RGBLED_NUM 27
     #define RGBLIGHT_LIMIT_VAL 120
     #define RGBLIGHT_HUE_STEP 17
     #define RGBLIGHT_SAT_STEP 10
     #define RGBLIGHT_VAL_STEP 10
+    #define RGB_DISABLE_AFTER_TIMEOUT 10
 #endif
-#undef RGBLED_NUM
